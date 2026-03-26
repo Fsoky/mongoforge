@@ -9,7 +9,7 @@ def read(filename: str) -> str:
 
 setup(
     name="mongoforge",
-    version="1.0.0",
+    version="1.1.0",
     description="Magic filters for MongoDB",
     long_description=read("README.md"),
     long_description_content_type="text/markdown",
