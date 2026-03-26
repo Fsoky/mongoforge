@@ -22,8 +22,14 @@ class Field:
     def __le__(self, value: Any) -> MagicData:
         return {self.name: {"$lte": value}}
 
+    def in_(self, values: list | tuple | set) -> MagicData:
+        return {self.name: {"$in": list(values)}}
+
 
 class Filter:
     
     def __getattr__(self, name: str):
         return Field(name)
+
+    def or_f(self, *filters: Any) -> MagicData:
+        return {"$or": list(filters)}
