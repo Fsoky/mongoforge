@@ -22,6 +22,19 @@ else:
     collection.insert_one(...)
 ```
 
+## Additional filters
+
+```python
+# Or filter
+F.or_f(F.name == "Alex", F.age > 18)
+```
+
+```python
+# In
+F.name.in_({"Alex", "Bob"})
+```
+
+
 ## Available filters
 
 | MongoDB Operator | Python Expression | Example Output          |
@@ -31,3 +44,5 @@ else:
 | `$lt`            | `F.age < 21`      | `{"age": {"$lt": 21}}`  |
 | `$gte`           | `F.age >= 21`     | `{"age": {"$gte": 21}}` |
 | `$lte`           | `F.age <= 21`     | `{"age": {"$lte": 21}}` |
+| `$or`           | `F.or_f(...)`     | `{"$or": [{...}]}` |
+| `$in`           | `F.name.in_(...)`     | `{"name": {"$in": [...]}` |
